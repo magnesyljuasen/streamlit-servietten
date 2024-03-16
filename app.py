@@ -21,52 +21,32 @@ if __name__ == "__main__":
             input_object.df_energy['Oppvarmingsbehov'],
             'Oppvarmingsbehov',
             ymin=ymin,
-            ymax=ymax
+            ymax=ymax,
+            height=150
             )
     with c2:
         figures.plot_hourly_series(
             input_object.df_energy['Tappevannsbehov'],
             'Tappevannsbehov',
             ymin=ymin,
-            ymax=ymax
+            ymax=ymax,
+            height=150
             )
     with c3:
         figures.plot_hourly_series(
             input_object.df_energy['Elspesifikt behov'],
             'Elspesifikt behov',
             ymin=ymin,
-            ymax=ymax
+            ymax=ymax,
+            height=150
             )
-    c1, c2, c3 = st.columns(3)
+    c1, c2 = st.columns([2,1])
     with c1:
         figures.plot_hourly_series(
-            np.sort(input_object.df_energy['Oppvarmingsbehov'])[::-1],
-            'Oppvarmingsbehov',
-            np.sort(input_object.df_energy['Tappevannsbehov'])[::-1],
-            'Tappevannsbehov',
-            np.sort(input_object.df_energy['Elspesifikt behov'])[::-1],
-            'Elspesifikt behov',
-            linemode=True,
-            xtick_datemode=False,
-            ymin=ymin,
-            ymax=ymax
-            )
-    with c2:
-        figures.plot_hourly_series(
-            np.sort(input_object.df_energy['Oppvarmingsbehov'] + input_object.df_energy['Tappevannsbehov'])[::-1],
+            input_object.df_energy['Oppvarmingsbehov'] + input_object.df_energy['Tappevannsbehov'],
             'Totalt varmebehov',
-            linemode=True,
-            xtick_datemode=False,
-            ymin=ymin,
-            ymax=ymax
-            )
-    with c3:
-        figures.plot_hourly_series(
-            np.sort(input_object.df_energy['Oppvarmingsbehov'] + input_object.df_energy['Tappevannsbehov'] + input_object.df_energy['Elspesifikt behov'])[::-1],
-            'Totalt',
-            linemode=True,
-            xtick_datemode=False,
-            ymin=ymin,
-            ymax=ymax
+            height=150
+            #linemode=True,
+            #xtick_datemode=False,
             )
 

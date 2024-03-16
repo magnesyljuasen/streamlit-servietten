@@ -45,7 +45,7 @@ def plot_hourly_series(
                 stackgroup=stackgroup,
                 fill=fill,
                 line=dict(width=width, color=colors[i]),
-                name=f"{args[i*2+1]}:<br>{int(round(np.sum(y_arrays[i]),-2)):,} kWh/år | {float(round(np.max(y_arrays[i]),1)):,} kW".replace(",", " ").replace(".", ",")
+                name=f"{args[i*2+1]}:<br>{int(round(np.sum(y_arrays[i]),-2)):,} kWh/år | {int(np.max(y_arrays[i])):,} kW".replace(",", " ").replace(".", ",")
                 )
             )
     fig.update_layout(
